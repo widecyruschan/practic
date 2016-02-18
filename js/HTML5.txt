@@ -1,0 +1,294 @@
+html5	新浏览器支持  http://caniuse.com/
+
+1.新选择器  类似于JQ的选择器 
+	querySelector   
+		类似于JQ中的选择器$  $('#div1') $('.box')  $('ul li')
+		var oDiv=documemt.querySelector('#div1')  //id=div1
+		var oDiv=documemt.querySelector('div')    //选择文档中第一个Div元素
+		var oDiv=documemt.querySelector('.div1')   //class =div1 只能选择一组中的第一个元素
+		var oDiv=documemt.querySelector('[title=hello]')
+			//<div id="div1" class="box" title="hello">div</div>
+
+
+	querySelectorAll   //选择文档中一组元素   
+		var aDiv = document.querySelectorAll('.box');   //获取一组元素
+		alert( aDiv.length );
+
+	getElemetsByClassName
+
+	获取class列表属性
+		classList    //oDiv.classList   类似与数组的对象
+			length :  class的长度        oDiv.classList.length
+			add()  :  添加class方法	    oDiv.classList.add('box4');
+			remove()  :  删除class方法   oDiv.classList.remove('box2');
+			toggle() :  切换class方法 	已有就删除，没有就添加  oDiv.classList.toggle('box2');
+
+	JSON的新方法
+		parse() : 	把字符串转成json   只能解析JSON形式的字符串变成JS  (安全性要高一些)
+					字符串中的属性要严格的加上引号
+					JSON.parse(str);
+					
+		stringify() : 把json转化成字符串
+					  会自动的把双引号加上
+					  JSON.stringify(json);
+
+ 		新方法与eval的区别
+		新方法的应用
+			深度克隆新对象
+
+			旧方法
+			var a = {
+				name : 'hello'
+			};
+
+			var b = {};
+
+			for(var attr in a){
+				b[attr] = a[attr];
+			}
+
+			新方法
+			var a = {
+				name : { age : 100 }
+			};
+
+			var str = JSON.stringify(a);
+
+			var b = JSON.parse(str);
+
+		如何其他浏览器做到兼容
+			http://www.json.org/去下载json2.js
+
+	data自定义数据
+		dataset
+			data-name :  dataset.name
+			data-name-first  :  dataset.nameFirst 
+
+			例：
+			<div id="div1" data-miaov="妙味" data-miaov-all="妙味课堂">div</div>
+			alert( oDiv.dataset.miaov );  //妙味
+			alert( oDiv.dataset.miaovAll );   //妙味课堂
+	Data数据在jquery mobile中有着重要作用
+
+
+	延迟加载JS
+		JS的加载会影响后面的内容加载
+			很多浏览器都采用了并行加载JS，但还是会影响其他内容
+		Html5的defer和async
+			defer : 延迟加载，会按顺序执行，在onload执行前被触发
+			<script src="a.js" defer="defer"></script>
+			async : 异步加载，加载完就触发，有顺序问题
+			<script src="a.js" async ="async"></script>
+		Labjs库  异步JS库
+
+	历史管理
+		通过 window.location.hash 记录hash值 window.location.hash = num;
+		onhashchange  ：改变hash值来管理
+
+		<script>
+			window.onload = function(){
+				var oInput = document.getElementById('input1');
+				var oDiv = document.getElementById('div1');
+				
+				var json = {};
+				
+				oInput.onclick = function(){
+					
+					var num = Math.random();
+					
+					var arr = randomNum(35,7);
+					 
+					json[num] = arr;
+					
+					oDiv.innerHTML = arr;
+					
+					window.location.hash = num;
+					
+				};
+				
+				window.onhashchange = function(){
+					
+					oDiv.innerHTML = json[window.location.hash.substring(1)];
+
+					获取的值带# 号 需用window.location.hash.substring(1) 把#号去掉
+					
+				};
+				
+				function randomNum(iAll,iNow){
+					
+					var arr = [];
+					var newArr = [];
+					for(var i=1;i<=iAll;i++){
+						arr.push(i);
+					}
+					
+					for(var i=0;i<iNow;i++){
+						newArr.push( arr.splice( Math.floor(Math.random()*arr.length) ,1) );
+					}
+					
+					return newArr;
+					
+				}
+				
+			};
+			</script>
+
+		history  ：
+			服务器下运行
+			pushState :  三个参数 ：数据  标题(都没实现)  地址(可选)
+			popstate事件 :  读取数据   event.state
+			history.pushState(arr,'',arr);
+			window.onpopstate = function(ev){
+				oDiv.innerHTML = ev.state;		
+			};
+			注意：网址是虚假的，需在服务器做地址映射，不然刷新找不到页面
+
+2.H5拖放事件 
+	draggable ：
+			设置为true，元素就可以拖拽了	<li draggable="true">a</li>
+
+	拖拽元素事件 :  事件对象为被拖拽元素
+			dragstart ,  拖拽前触发  div.ondragstart
+			drag ,拖拽前、拖拽结束之间，连续触发 div.ondrag
+			dragend  , 拖拽结束触发    div.ondragend
+	目标元素事件 :  事件对象为目标元素
+			dragenter ,  进入目标元素触发，相当于mouseover
+			dragover  ,进入目标、离开目标之间，连续触发
+			dragleave ,  离开目标元素触发，相当于mouseout
+			drop  ,  在目标元素上释放鼠标触发
+
+	事件的执行顺序 ：drop不触发的时候  要想触发drop事件，就 必须在dragover当中阻止默认事件 ev.preventDefault();
+			dragstart  >  drag >  dragenter >  dragover >  dragleave > dragend 
+	事件的执行顺序 ：drop触发的时候(dragover的时候阻止默认事件)
+			dragstart  >  drag >  dragenter >  dragover >  drop > dragend
+		不能释放的光标和能释放的光标不一样
+
+	解决火狐下的问题
+		必须设置dataTransfer对象才可以拖拽除图片外的其他标签
+		
+
+	dataTransfer对象
+		setData() : 设置数据 key和value(必须是字符串)
+		ev.dataTransfer.setData('name',this.index);
+
+		getData() : 获取数据，根据key值，获取对应的value
+		ev.dataTransfer.getData('name');
+
+	dataTransfer对象_2
+		effectAllowed   拖入时光标样式
+				ev.dataTransfer.effectAllowed = 'link';
+				effectAllowed : 设置光标样式(none, copy, copyLink, copyMove, link, linkMove, move, all 和 uninitialized)
+		setDragImage 
+				三个参数：指定的元素，坐标X，坐标Y
+				ev.dataTransfer.setDragImage(oImg,0,0);  设置拖拽目标及拖拽中心点   如是百度音乐播放音乐下的音乐图标
+		files 
+		文件拖入得到数组集合
+				获取外部拖拽的文件，返回一个filesList列表
+				filesList下有个type属性，返回文件的类型
+
+				var fs=ev.dataTransfer.files;
+					fs.length 拖放元素个数
+					fs[0].type 拖放元素文件类型
+
+	FileReader(读取文件信息)
+
+	var fd = new FileReader();
+		
+		fd.readAsDataURL( fs[0] );   读取文件信息
+
+		//readAsDataURL
+				//参数为要读取的文件对象，将文件读取为DataUrl 
+
+		//如信息读取成功 就会有onload事件
+		//onload
+				//当读取文件成功完成的时候触发此事件
+				//this. result , 来获取读取的文件数据，如果是图片，将返回base64格式的图片数据
+
+		fd.onload = function(){
+		
+			alert( this.result );
+		};
+
+
+上传图片预览
+
+window.onload = function(){
+	
+	var oDiv = document.getElementById('div1');
+	var oUl = document.getElementById('ul1');
+	
+	
+	oDiv.ondragenter = function(){
+		
+		this.innerHTML = '可以释放啦';
+		
+	};
+	
+	oDiv.ondragover = function(ev){
+		
+		ev.preventDefault();
+		
+	};
+	
+	oDiv.ondragleave = function(){
+		
+		this.innerHTML = '将文件拖拽到此区域';
+		
+	};
+	
+	oDiv.ondrop = function(ev){
+		
+		ev.preventDefault();
+		
+		var fs = ev.dataTransfer.files;
+		
+		//alert(fs.length);
+		
+		//alert( fs[0].type );
+		
+		/*if(fs[0].type.indexOf('image')!=-1){
+			var fd = new FileReader();
+		
+			fd.readAsDataURL( fs[0] );
+			
+			fd.onload = function(){
+				
+				var oLi = document.createElement('li');
+				var oImg = document.createElement('img');
+				oImg.src = this.result;
+				oLi.appendChild(oImg);
+				oUl.appendChild(oLi);
+				
+			};
+		}
+		else{
+			alert('亲，请上传图片类型');
+		}*/
+		
+		for(var i=0;i<fs.length;i++){
+			if(fs[i].type.indexOf('image')!=-1){
+				var fd = new FileReader();
+			
+				fd.readAsDataURL( fs[i] );
+				
+				fd.onload = function(){
+					
+					var oLi = document.createElement('li');
+					var oImg = document.createElement('img');
+					oImg.src = this.result;
+					oLi.appendChild(oImg);
+					oUl.appendChild(oLi);
+					
+				};
+			}
+			else{
+				alert('亲，请上传图片类型');
+			}
+		}
+		
+		
+	};
+	
+};
+
+
