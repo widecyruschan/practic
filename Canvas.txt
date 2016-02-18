@@ -1,0 +1,31 @@
+Canvas 默认大小 300*150
+Canvas 大小需写在行间，写在CSS会以默认大小拉变形
+
+
+var myCanvasDiv=document.getElementById("myCanvas");
+var ctx=myCanvasDiv.getContext("2d");
+ctx.fillStyle="#FF0000";
+ctx.fillRect(0,0,150,75);
+
+	鼠标画线
+
+	window.onload = function(){
+		var oC = document.getElementById('c1');
+		
+		var oGC = oC.getContext('2d');  
+		
+		oC.onmousedown = function(ev){
+			var ev = ev || window.event;
+			oGC.moveTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop);
+			document.onmousemove = function(ev){
+				var ev = ev || window.event;
+				oGC.lineTo(ev.clientX-oC.offsetLeft,ev.clientY-oC.offsetTop);
+				oGC.stroke();
+			};
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+			};
+		};
+		
+	};

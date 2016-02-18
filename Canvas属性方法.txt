@@ -1,12 +1,3 @@
-Canvas 默认大小 300*150
-Canvas 大小需写在行间，写在CSS会以默认大小拉变形
-
-
-var myCanvasDiv=document.getElementById("myCanvas");
-var ctx=myCanvasDiv.getContext("2d");
-ctx.fillStyle="#FF0000";
-ctx.fillRect(0,0,150,75);
-
 Canvas属性方法
 
 颜色、样式和阴影
