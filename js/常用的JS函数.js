@@ -95,7 +95,7 @@ function NowTimeCode()
 { 
 	var Result=""; 
 	var now = new Date(); 
-	var year = now.getYear(); 
+	var year = now.getFullYear(); 
 	if (now.getYear() < 1900) { 
 		year = now.getYear() + 1900; 
 	} 
