@@ -1,0 +1,224 @@
+Css3 选择器 --属性选择器
+
+	E[attr]只使用属性名，但没有确定任何属性值
+	E[attr="value"]指定属性名，并指定了该属性的属性值
+	E[attr~="value"]指定属性名，并且具有属性值，此属性值是一个词列表，并且以空格隔开，其中词列表中包含了一个value词，而且等号前面的“〜”不能不写
+	E[attr^="value"]指定了属性名，并且有属性值，属性值是以value开头的
+	E[attr$="value"]指定了属性名，并且有属性值，而且属性值是以value结束的
+	E[attr*="value"]指定了属性名，并且有属性值，而且属值中包含了value
+	E[attr|="value"]指定了属性名，并且属性值是value或者以“value-”开头的值（比如说zh-cn）
+
+
+结构性伪类
+
+	E:nth-child(n)  表示E父元素中的第n个字节点
+		p:nth-child(odd){background:red}/*匹配奇数行*/
+		p:nth-child(even){background:red}/*匹配偶数行*/
+		p:nth-child(2n){background:red}
+	E:nth-last-child(n) 表示E父元素中的第n个字节点，从后向前计算
+	E:nth-of-type(n)  表示E父元素中的第n个字节点，且类型为E
+	E:nth-last-of-type(n)表示E父元素中的第n个字节点，且类型为E,从后向前计算
+	E:empty 表示E元素中没有子节点。注意：子节点包含文本节点
+	E:first-child 表示E元素中的第一个子节点
+	E:last-child 表示E元素中的最后一个子节点
+	E:first-of-type 表示E父元素中的第一个子节点且节点类型是E的
+	E:last-of-type 表示E父元素中的最后一个子节点且节点类型是E的
+	E:only-child表示E元素中只有一个子节点。注意：子节点不包含文本节点
+	E:only-of-type 表示E的父元素中只有一个子节点，且这个唯一的子节点的类型必须是E。注意：子节点不包含文本节点
+
+Css3 选择器 --伪类
+
+	E:target 表示当前的URL片段的元素类型，这个元素必须是E
+	E:disabled 表示不可点击的表单控件
+	E:enabled 表示可点击的表单控件
+	E:checked 表示已选中的checkbox或radio
+	E:first-line 表示E元素中的第一行
+	E:first-letter 表示E元素中的第一个字符
+	E::selection表示E元素在用户选中文字时
+	E::before 生成内容在E元素前
+	E::after 生成内容在E元素后
+	E:not(s) 表示E元素不被匹配
+	E~F表示E元素毗邻的F元素
+	Content 属性
+
+新增颜色模式		rgba(255,255,255,255);  问题：注意边框颜色透明有问题
+				Hsl
+					H	Hue		色调		任意数值
+					S 	saturation    饱和度          0%-100%
+					L		Lightness	亮度		0%-100%
+
+文字阴影
+
+	text-shadow：x y blur color, …
+				参数
+					x		横向偏移
+					y		纵向偏移
+					blur		模糊距离
+					color		阴影颜色
+					文本阴影如果加很多层，会很卡很卡很卡
+		文字阴影应用
+			最简单用法
+				text-shadow:2px 2px 4px black
+			阴影叠加
+				text-shadow:2px 2px 0px red, 2px 2px 4px green;
+				先渲染后面的，再渲染前面的
+			几个好玩的例子
+				层叠：color:red; font-size:100px; font-weight:bold; text-shadow:2px 2px 0px white, 4px 4px 0px red;
+				光晕：color:white; font-size:100px; text-shadow:0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+				火焰文字：text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e; font-family:Verdana, Geneva, sans-serif; font-size:100px; font-weight:bold; color:white;
+
+文字描边
+		-webkit-text-stroke:宽度 颜色
+
+新增文本功能
+
+		Direction  定义文字排列方式(全兼容)
+					Rtl 从右向左排列
+					Ltr 从右向左排列
+					注意要配合unicode-bidi 一块使用
+
+		Text-overflow 定义省略文本的处理方式
+					clip  无省略号
+					Ellipsis 省略号 (注意配合overflow:hidden和white-space:nowrap一块使用) 
+
+
+自定义文字
+
+	格式
+		@font-face {
+			    font-family: ‘miaov';
+			    src: url('111-webfont.eot');
+			    src: url('111-webfont.eot?#iefix') format('embedded-opentype'),
+			         url('111-webfont.woff') format('woff'),
+			         url('111-webfont.ttf') format('truetype'),
+			         url('111-webfont.svg#untitledregular') format('svg');
+			    font-weight: normal;
+			    font-style: normal;
+
+		}
+
+
+
+转换字体格式生成兼容代码 http://www.fontsquirrel.com/fontface/generator
+
+弹性盒模型
+
+		注意在使用弹性盒模型的时候 父元素必须要加display:box 或 display:inline-box
+		Box-orient 定义盒模型的布局方向
+				Horizontal 水平显示
+				vertical 垂直方向
+
+		box-direction 元素排列顺序
+				Normal 正序
+				Reverse 反序
+
+		box-ordinal-group 设置元素的具体位置
+
+		Box-flex 定义盒子的弹性空间
+				子元素的尺寸=盒子的尺寸*子元素的box-flex属性值 / 所有子元素的box-flex属性值的和 
+
+		box-pack 对盒子富裕的空间进行管理
+				Start 所有子元素在盒子左侧显示，富裕空间在右侧
+				End 所有子元素在盒子右侧显示，富裕空间在左侧
+				Center 所有子元素居中
+				Justify 富余空间在子元素之间平均分布
+
+		box-align 在垂直方向上对元素的位置进行管理
+				Star 所有子元素在据顶
+				End 所有子元素在据底
+				Center 所有子元素居中
+
+
+盒模型阴影
+
+		用法
+			box-shadow:[inset] x y blur [spread] color
+			参数
+				inset：投影方式
+					inset：内投影
+					不给：外投影
+				x、y：阴影偏移
+				blur：模糊半径
+				spread：扩展阴影半径
+					先扩展原有形状，再开始画阴影
+				color
+
+其他盒模型新增属性
+
+		box-reflect 倒影
+				direction  方向     above|below|left|right;
+				距离
+				渐变（可选）
+		resize 自由缩放
+				Both 水平垂直都可以缩放
+				Horizontal 只有水平方向可以缩放
+				Vertical 只有垂直方向可以缩放
+				注意：一定要配合overflow:auto 一块使用只有水平方向可以缩放
+		box-sizing 盒模型解析模式
+				Content-box  标准盒模型 width/height=border+padding+content
+				Border-box 怪异盒模型 width/height=content
+
+Css3分栏布局
+
+		column-width 栏目宽度
+		column-count 栏目列数
+		column-gap   栏目距离
+		column-rule  栏目间隔线
+
+Css3响应式布局
+
+		媒体类型
+			all 所有媒体
+			braille 盲文触觉设备
+			embossed 盲文打印机
+			print 手持设备 
+			projection 打印预览
+			screen 彩屏设备
+			speech '听觉'类似的媒体类型
+			tty 不适用像素的设备
+			tv  电视
+
+		关键字
+			and
+			not      not关键字是用来排除某种制定的媒体类型
+			only     only用来定某种特定的媒体类型
+
+		媒体特性
+
+		(max-width:600px) 
+		(max-device-width: 480px)  设备输出宽度
+		(orientation:portrait)  竖屏
+		(orientation:landscape)	横屏
+		(-webkit-min-device-pixel-ratio: 2) 像素比
+				devicePixelRatio 设备像素比 window.devicePixelRatio = 物理像素 / dips
+
+
+		样式引入
+
+			<link rel="stylesheet" type="text/css" href="../css/print.css" media="print" />
+			 @import url("css/reset.css") screen;
+			@media screen{
+			      选择器{
+			 	属性：属性值；
+			     }
+			   }
+
+			<link rel=”stylesheet” media=”all and (orientation:portrait)” href=”portrait.css”>
+			<link rel=”stylesheet” media=”all and (orientation:landscape)”href=”landscape.css”>
+			@media screen and (min-width:400px) and (max-width:500px) {.box {margin: 0 auto;}}
+			<link rel="stylesheet" type="text/css" href="styleA.css"  media="screen and (min-width: 800px)">
+			<link rel="stylesheet" type="text/css" href="styleB.css" media="screen and (min-width: 600px) and (max-width: 800px)">
+			<link rel="stylesheet" type="text/css" href="styleC.css"    media="screen and (max-width: 600px)">
+
+		移动端meta
+
+			<meta name="viewport" content="" />
+			width [pixel_value | device-height]
+			height [pixel_value | device-height]
+			user-scalable 是否允许缩放 （no||yes）
+			initial-scale 初始比例
+			minimum-scale 允许缩放的最小比例
+			maximum-scale 允许缩放的最大比例 
+			target-densitydpi [dpi_value | device-dpi | high-dpi | medium-dpi | low-dpi] 
+
+
