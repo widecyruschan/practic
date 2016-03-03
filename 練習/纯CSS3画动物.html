@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+    .boxDom {
+        width: 800px;
+        height: 800px;
+        position: relative;
+        margin: auto;
+        position: absolute;
+        top:0px;
+        bottom:0px;
+        left:0px;
+        right: 0px;
+    }
+    .ear {
+        width: 274px;
+        height: 224px;
+        position: absolute;
+        z-index: -1;
+    }
+    .leftEar {
+        top:20px;
+        left:0px;
+        transform:rotate(45deg);
+        -moz-transform:rotate(45deg);
+        -webkit-transform:rotate(45deg);
+        -o-transform:rotate(45deg);
+    }
+    .rightEar {
+        right: 0px;
+        transform:rotate(-45deg);
+        -moz-transform:rotate(-45deg);
+        -webkit-transform:rotate(-45deg);
+        -o-transform:rotate(-45deg);
+        top:20px;
+    }
+    .earOne {
+        width:250px;
+        height: 200px;
+        border-radius: 50%;
+        -webkit-border-radius:50%;
+        -moz-border-radius:50%;
+        -o-border-radius:50%;
+        border: 10px solid #000;
+        background: #fff500;
+    }
+    .earTwo {
+        width: 180px;
+        height: 130px;
+        border-radius: 50%;
+        -webkit-border-radius:50%;
+        -moz-border-radius:50%;
+        -o-border-radius:50%;
+        background:#A45F28;
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin:auto;
+    }
+    .face {
+        width: 600px;
+        height: 500px;
+        /*border:6px solid #000;*/
+        border-radius: 50%;
+        -webkit-border-radius:50%;
+        -moz-border-radius:50%;
+        -o-border-radius:50%;
+        background: #fff500;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top:50px;
+        margin:0 auto;
+        z-index: -1;
+    }
+    .eye {
+        position: absolute;
+        top: -60px;
+        bottom: 0;
+        margin:auto;
+        width: 120px;
+        height: 200px;
+    }
+    .leftEye {
+        left: 100px;
+    }
+    .rightEye {
+        right: 100px;
+    }
+    .eyeBox {
+        width: 100px;
+        height: 150px;
+        border-radius: 50%;
+        position: relative;
+        border:10px solid #000;
+    }
+    .eyeOne {
+        width: 90px;
+        height: 130px;
+        border-radius: 50%;
+        background: #0093dd;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin: -10px auto;
+        z-index: -1;
+    }
+    .eyeTwo {
+        width: 35px;
+        height: 70px;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin: -10px auto;
+        z-index: -1;
+    }
+    .eyeLine {
+        width: 160px;
+        height: 100px;
+        border-radius: 50%;
+        border-top:10px solid #000;
+        border-bottom: 10px solid transparent;
+        border-left:10px solid transparent;
+        border-right:10px solid transparent;
+        position: absolute;
+        margin-top:-10px;
+    }
+    .left {
+        transform:rotate(-10deg);
+        -webkit-transform:rotate(-10deg);
+        -moz-transform:rotate(-10deg);
+        -o-transform:rotate(-10deg);
+        left: -20px;
+    }
+    .right {
+        transform:rotate(10deg);
+        right:-20px;
+    }
+    .mouth {
+        width:700px;
+        height: 350px;
+        border-radius: 50%;
+        background: #fff500;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left:0px;
+        right: 0px;
+        margin:auto;
+        margin-bottom:100px;
+    }
+    .mouthLine {
+        width:360px;
+        height: 300px;
+        border-radius: 50%;
+        border-top:10px solid transparent;
+        border-bottom:20px solid #f00;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        position: absolute;
+        /*top: 0px;
+        bottom: 0px;*/
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        margin: -100px auto;
+    }
+</style>
+</head>
+
+<body>
+<div class="boxDom">
+    <div class="ear leftEar">
+        <div class="earOne"></div>
+        <div class="earTwo"></div>
+    </div>
+    <div class="ear rightEar">
+        <div class="earOne"></div>
+        <div class="earTwo"></div>
+    </div>
+    <div class="face">
+        <div class="eye leftEye">
+            <div class="eyeBox">
+                <div class="eyeOne"></div>
+                <div class="eyeTwo"></div>
+            </div>
+            <div class="eyeLine left"></div>
+        </div>
+        <div class="eye rightEye">
+            <div class="eyeBox">
+                <div class="eyeOne"></div>
+                <div class="eyeTwo"></div>
+            </div>
+            <div class="eyeLine right"></div>
+        </div>
+    </div>
+    <div class="mouth">
+        <div class="mouthLine"></div>
+    </div>
+</div>
+</body>
+</html>
