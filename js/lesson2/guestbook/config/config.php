@@ -8,10 +8,10 @@ $_CONFIGS = array(
 
 	'db'	=>	array(
 		'db_host'		=>	'localhost',
-		'db_port'		=>	'3306',
+		'db_port'		=>	'8889',
 		'db_user'		=>	'root',
-		'db_password'	=>	'',
-		'db_name'		=>	'miaov_guestbook',
+		'db_password'	=>	'oold4kc',
+		'db_name'		=>	'guestbook',
 	),
 
 );
