@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		// instanceof运算符
+	    //  用于判断变量是否是某一个类的实例
+	    
+	    var d = new Date()
+	    var b1 = d instanceof Date;   //  true
+	    console.log("d instanceof Date:" + b1);
+	    var b2 = d instanceof Object; //  true
+	    console.log("d instanceof Object:" + b2);
+	    var b3 = d instanceof String;  // false
+	    console.log("d instanceof String:" + b3);
+	    
+	    var a = [1,2,3];
+	    b1 = a instanceof Array; // true
+	    console.log("a instanceof Array:" + b1);
+	    b2 = a instanceof Object; // true
+	    console.log("a instanceof Object:" + b2);
+	    b3 = a instanceof Number; // false;
+        console.log("a instanceof Number:" + b3);
+		</script>
+	</body>
+</html>

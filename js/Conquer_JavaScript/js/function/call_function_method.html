@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 函数和方法调用
+			//  (...)在定义函数和调用函数时，即使没有参数，也不能省略
+			function fun()
+			{
+				
+			}
+			console.log(fun());
+			
+			var obj = {};
+			obj.add = function(a,b){return a + b;};
+			console.log(obj.add(4,6));
+			//  this就是一个关键字
+			obj.method = function(){console.log(this == obj);};
+			console.log(obj.method());
+			
+			
+			
+		</script>
+	</body>
+</html>

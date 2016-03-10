@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 数组遍历
+            // for   for-in    forEach
+            var values = []; //  空数组
+            for(var i = 0; i < 10;i++)
+            {
+            	    values[i] = i + 1;
+            }
+            //  使用传统的for循环遍历数组
+            for(var i = 0; i < values.length; i++)
+            {
+            	    console.log(values[i]);
+            }
+            delete values[2];
+            for(var i = 0; i < values.length; i++)
+            {
+            	    // null、undefined和不存在的元素
+            	    if(!values[i]) continue;
+            	    console.log(values[i]);
+            }
+            delete values[5];
+            for(var i = 0; i < values.length; i++)
+            {
+            	    // 跳过不存在的数组元素
+            	    if(!(i in values)) continue;
+            	    console.log(values[i]);
+            }
+            
+            //  使用 for-in遍历数组，不会遍历到不存在（使用delete删除）的数组元素
+            for(var i in values)
+            {
+            	     console.log(values[i]);
+            }
+            
+            values.abc = "xyz";
+            for(var i in values)
+            {
+            	     //  跳过继承的属性
+            	     if(!values.hasOwnProperty(i)) continue;
+            	     console.log(values[i]);
+            }
+            
+            //  forEach
+            //  不会枚举属性，不存在的数组元素不会枚举
+            var sum = 0;
+            values.forEach(function(x){
+            	          console.log(x);
+            	          sum += x*x;
+            });
+	        console.log(sum);
+		</script>
+	</body>
+</html>

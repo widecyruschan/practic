@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 转义字符
+			//  1.  输出特殊字符
+			//  2.  输出与Unicode对应的字符
+			//  转义符必须以反斜杠（\）开头
+			//  \t：制表符
+			console.log("abc\txyz");
+            //  \n：换行
+            console.log("第一行\n第二行");
+
+            console.log("双引号：\"abc\"");
+            console.log('单引号：\'xyz\'');
+            
+            console.log("\x41"); // A
+            console.log("\u0041");  //A
+            
+            console.log("\u4E16"); // 世
+            
+            //  当反斜杠后面的字符不是转义字符，则忽略反斜杠
+            console.log("a\yz");
+            
+            console.log("中\\国");
+			
+          
+            
+
+		</script>
+	</body>
+</html>

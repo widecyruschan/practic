@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 数组方法：join
+	        // join方法将数组中的元素转换为字符串，并连接在一起
+	        
+	        var arr1 = [1,2,3,4,true,12.31,"abc"];
+	        console.log(arr1.join());     //  用逗号分隔数组元素
+	        console.log(arr1.join(""));   //  让数组元素直接连接到一起
+	        console.log(arr1.join(" "));  //  用空格分隔数组元素
+	        console.log(arr1.join("$$"));  //  用两个美元符号分隔数组元素
+	        var arr2 = new Array(10);
+	        console.log(arr2.join("*"));   //  显示10个星号
+		</script>
+	</body>
+</html>

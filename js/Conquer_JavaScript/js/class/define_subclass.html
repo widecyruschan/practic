@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 定义子类
+		    
+		    // A 继承自 B
+            
+		    function extend(o, p)
+            {
+            	    // 枚举所有的属性名
+            	    for(var prop in p)
+            	    {
+            	    	    o[prop] = p[prop];
+            	    }
+            	    return o;
+            }
+            //  superclass：父类的构造函数
+            //  subclass：子类的构造函数
+            function defineSubClass(superclass,subclass)
+            {
+            	    subclass.prototype = Object.create(superclass.prototype);
+            	    subclass.prototype.constructor = subclass;
+            	    
+            	    // 复制构造函数对象中的属性
+            	    return extend(subclass, superclass);
+            }
+            function ParentClass()
+            {
+            	    
+            }
+            ParentClass.prototype.process = function(){console.log("process");};
+            ParentClass.age = 20;
+            
+            function SubClass()
+            {
+            	
+            }
+            var NewSubClass = defineSubClass(ParentClass, SubClass);
+            var c = new SubClass();
+            c.process();
+            console.log(NewSubClass.age);
+            
+            Function.prototype.extend = function(superclass)
+            {
+            	    return defineSubClass(superclass, this);
+            }
+            
+            function Person()
+            {
+            	
+            }
+            Person.prototype.getName = function(){return "李宁";};
+            Person.getInfo = function(){return "信息";};
+            
+            function Teacher()
+            {
+            	
+            }
+            Teacher.extend(Person);
+            var p = new Person();
+            console.log(p.getName());
+            console.log(Person.getInfo());
+
+		</script>
+	</body>
+</html>

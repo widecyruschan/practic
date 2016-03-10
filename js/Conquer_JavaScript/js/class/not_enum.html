@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 让属性不可枚举
+            //Object.defineProperty()
+            function MyClass()
+            {
+            	
+            }
+            
+            MyClass.prototype.name = "abc";
+            MyClass.prototype.id = 20;
+            
+            Object.defineProperty(MyClass.prototype, "name", {enumerable:false});
+            var c = new MyClass();
+            for(p in c)
+            {
+            	    console.log(p);
+            }
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//  属性的查询和设置（添加和删除）
+		var obj1 = {name:"Bill", age:20};
+		console.log(obj1.name);
+		console.log(obj1["age"]);
+		
+		var obj2 = {"First name": "Mike", "for":"value"};
+		console.log(obj2["First name"]);
+		console.log(obj2["for"]);
+		
+		for(var i = 0; i < 10;i++)
+		{
+			obj2["p" + Number(i + 1)] = "value" + Number(i + 1);
+		}
+		
+		for(var i = 0; i < 10;i++)
+		{
+			console.log(obj2["p" + Number(i + 1)]);
+		}
+        delete obj2.p2;
+        console.log(obj2.p2);
+        
+		</script>
+	</body>
+</html>

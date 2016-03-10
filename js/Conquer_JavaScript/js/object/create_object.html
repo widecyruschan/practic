@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//  直接创建对象
+        var empty = {};  // 空对象
+        var point1 = {x:30, y:20};
+        var point2 = {x:point1.x + 20, y:point1.y * 3};
+        var product = {
+        	    "product name":"iPhone6 Plus",  //  属性名包含空格
+        	    "product-id":1234,				//  属性名包含连字符
+        	    "if":"value"	,					//  属性名是关键字
+        	    others:{
+        	    	   date:"2015-1-1",
+        	    	   memo:"128G"
+        	    }
+        	
+        };
+        
+        console.log(product.others.memo);
+		</script>
+	</body>
+</html>

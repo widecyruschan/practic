@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 调用父类的构造函数和普通方法
+		    
+		    function ParentClass()
+		    {
+		    	    console.log("ParentClass Constructor");
+		    }
+		    
+		    ParentClass.prototype.method = function()
+		    {
+		    	    console.log("ParentClass method");
+		    }
+		    
+		    //  子类
+		    function SubClass()
+		    {
+		    	    //  调用父类的构造函数
+		    	    ParentClass.apply(this, arguments);
+		    	    console.log("SubClass Constructor");
+		    }
+		    
+		    SubClass.prototype = Object.create(ParentClass.prototype);
+		    SubClass.prototype.constructor = SubClass;
+		    
+		    SubClass.prototype.method = function()
+		    {
+		    	    console.log("SubClass method");
+		    	    //  调用父类的method方法
+		    	    ParentClass.prototype.method.apply(this, arguments);
+		    }
+		    
+		    var c = new SubClass();
+		    c.method();
+		</script>
+	</body>
+</html>

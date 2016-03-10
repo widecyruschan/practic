@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 正则表达式的定义
+            //  通过直接量创建正则表达式对象
+            var pattern1 = /^a/;
+            console.log(pattern1.test("babc"));   // false
+            //  直接使用RegExp构造函数创建正则表达式对象
+            var pattern2 = new RegExp("[a-z]");
+            console.log(pattern2.test("abcd"));   // true
+            console.log(pattern2.test("1234"));   // false
+            
+            
+		</script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 字符串操作
+            var str1 = "I love " + "you.";
+            var str2 = "Who are you?";
+            var str3 = str1 + str2;
+            console.log("str3 = " + str3);
+            
+            //  字符串的长度
+            console.log("str3的长度：%d", str3.length);
+            
+            var str4 = "泰山";
+            console.log("str4的长度：%d", str4.length);
+            
+            //  枚举字符串中的所有字符
+            var length = str3.length;
+            var str5 = "";
+            for(var i = 0; i < length;i++)
+            {
+            	    //if(str3.charAt(i) != " ")
+            	    if(str3[i]!= " ")
+            	    {
+            	    	    //str5 += "<" + str3.charAt(i) + ">";
+            	    	    str5 += "<" + str3[i] + ">";
+            	    }
+            }
+	        console.log("str5:" + str5);
+	        
+	        //  子字符串
+	        
+	        console.log("str1.substr(2,5):" + str1.substr(2,5));  		// 第二个参数是length
+	        console.log("str1.substring(2,5):" + str1.substring(2,5));	//  第二个参数是结束字符的下一个字符的索引
+	        
+	        console.log(str1.slice(2, -1));
+	        
+	        console.log(str1.slice(-4));
+	        
+	        // 子字符串的定位
+	        console.log(str1.indexOf("o"));
+	        
+	        console.log(str1.lastIndexOf("o"));
+
+           // 将字符串拆分成数组
+           console.log(str1.split(" "));
+           
+           //  字符串替换
+           console.log(str1.replace("love", "hate"));
+           
+           console.log(str1.toUpperCase());
+		</script>
+	</body>
+</html>

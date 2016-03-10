@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//  枚举对象属性
+        var obj = Object.create(Array.prototype);
+        obj.name = "Bill";
+        obj.age = 30;
+        for(p in obj)
+        {
+        	    console.log(p);
+        }
+        
+        function extend(p)
+        {
+        	    for(prop in p)
+        	    {
+        	    	    this[prop] = p[prop];
+        	    }
+        }
+        obj.extend = extend;
+        var parent = {x:30, y:"xyz"};
+        obj.extend(parent);
+        
+        console.log(obj.y);
+        
+        
+        
+        
+		</script>
+	</body>
+</html>

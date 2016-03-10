@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 正则表达式的修饰符
+			// java,Java,JAVA
+			
+			//  i：不区分大小写
+			//  g：执行一个全局的匹配。也就是说，找到所有的匹配，而不是只找到第一个匹配的字符串
+			//  m：多行的匹配模式。^表示字符串或一行的开头   $表示字符串或一行的介绍
+			
+			var pattern1 = /^java$/;
+			console.log(pattern1.test("java"));  // true
+			console.log(pattern1.test("Java"));  // false
+			
+			var pattern2 = /^java$/i;
+			console.log(pattern2.test("java"));  // true
+			console.log(pattern2.test("Java"));  // false
+			
+			var pattern3 = /^java$/im;
+			
+			console.log(pattern3.test("Java\nabcd"));  // false
+			
+		</script>
+	</body>
+</html>

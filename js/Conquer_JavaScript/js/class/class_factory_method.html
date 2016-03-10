@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 构造函数的工厂方法
+		    
+		    function Set()
+		    {
+		    	    this.values = [];   //  保存集合中的元素
+		    	    for(var i = 0; i < arguments.length;i++)
+		    	    {
+		    	    	    this.values[i] = arguments[i];
+		    	    }
+		    	    
+		    }
+		    
+			Set.prototype = {
+				forEach:function()
+				{
+					for(var i = 0; i < this.values.length;i++)
+					{
+						console.log(this.values[i]);
+					}
+				}
+			};
+			
+			var set1 = new Set(1,2,3,4,5,6,7);
+			set1.forEach();
+			var set2 = new Set(["abc",true],10,11,12);
+			set2.forEach();
+			//  只接收数组元素的工厂方法
+			//  a表示数组
+			Set.fromArray = function(a)
+			{
+				var set = new Set();
+				for(var i = 0 ; i < a.length;i++)
+				{
+					set.values[i] = a[i];
+				}
+				return set;
+			}
+			
+			var set3 = Set.fromArray(["abc",true,123]);
+			set3.forEach();
+		</script>
+	</body>
+</html>

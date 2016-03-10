@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 模拟Java类定义方法1
+            // extend
+            // 1.  Java类的成员字段和方法  
+            // 2.  Java类的静态字段和方法
+            //  o：是一个要添加属性的对象，p：是一个对象，该对象中包含了若干个要添加到o中的属性
+            function extend(o, p)
+            {
+            	    // 枚举所有的属性名
+            	    for(var prop in p)
+            	    {
+            	    	    o[prop] = p[prop];
+            	    }
+            	    return o;
+            }
+            
+            //  用于定义类的函数
+            //  constructor：构造函数对象
+            //  methods：是一个对象，包含了所有的成员方法，也可以是属性
+            //  statics：是一个对象，包含所有静态的成员方法，也可以是属性
+            //  如果使用new创建一个对象，只能访问添加到构造函数对象原形中的属性
+            function defineClass(constructor, methods, statics)
+            {
+            	    if(methods) extend(constructor.prototype, methods);
+            	    if(statics) extend(constructor, statics);
+            	    return constructor;
+            }
+            
+            // 定义一个类
+            var SimpleClass = defineClass(
+            	               function(a,b){this.a = a; this.b = b;} ,
+            	               {
+            	                   method1:function(x){return x * this.a * this.b;},
+            	                   method2:function(x, y){return x + y + this.a + this.b;},
+            	                   name:"Bill"
+            	               },
+            	               {
+            	                   ONE:1,   // 模拟静态常量（可以通过约束让ONE成为只读的）
+            	                   static_method:function(){return "这是一个静态的方法";}  // 模拟静态方法
+            	               }
+            
+           );
+           
+           //  实例化SimpleClass
+           var c = new SimpleClass(3,5);
+           console.log(c.method1(2));
+           console.log(c.method2(20,10));
+           console.log(c.name);
+           
+           console.log(SimpleClass.ONE);
+           console.log(SimpleClass.static_method());
+            
+            
+		</script>
+	</body>
+</html>

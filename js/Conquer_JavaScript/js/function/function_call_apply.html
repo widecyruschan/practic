@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 函数方法：call和apply
+			//  间接调用函数
+			
+			var arr = [1,2,3];
+			console.log(Object.prototype.toString.call(arr));
+			
+			var obj = {x:"abc"};
+			obj[0] = 20;
+			obj[1] = 30;
+			obj[2] = 40;
+			
+			// 计算所有值参的和+指定对象所有索引类型属性值之和
+			function sum()
+			{
+				var sum = 0;
+				for(var i = 0; i < arguments.length;i++)
+				{
+					sum += arguments[i];
+				}
+				//  对象索引属性必须从0开始，而且是连续的
+				var i = 0;
+				while(this[i] != undefined)
+				{
+					sum += this[i];
+					i++;
+				}
+				return sum;
+			}
+			console.log(sum.call(obj));
+			console.log(sum.call(obj,1,2,3));  // 96 
+			console.log(sum.apply(obj, [1,2,3,4]));
+			console.log(sum(1,2,3,4));
+		</script>
+	</body> 
+</html>

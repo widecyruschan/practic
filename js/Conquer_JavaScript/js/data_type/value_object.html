@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		// 值与对象
+        var s = "hello world";
+        var hello = s.substring(0, s.indexOf(" ") + 1);  //  new String(s)
+        console.log("hello = %s", hello);
+        console.log("hello的长度=%d", s.length);
+        //  字符串：String    数值：Number   布尔：Boolean
+        var ss = new String("abcd");
+        
+        console.log("ss = %s", ss.valueOf());
+        
+        var n = new Number(20);
+        var b = new Boolean(true);
+        console.log("n = %d", n.valueOf());
+        console.log("b = ", b.valueOf());
+        s.length = 30;
+        //new String(s).length = 30;
+        console.log("s.length= %d", s.length);
+
+  
+		</script>
+	</body>
+</html>

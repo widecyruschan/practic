@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		// 显式类型转换
+        var n = Number("3");
+        var bStr = String(true);
+        console.log("bStr = %s", bStr);
+        var b = Boolean([]);
+        console.log(b);
+        var obj = Object(20);  // new Number(20);
+        //  除了null和undefined外，所有的值都支持toString方法
+        var m = 30;
+        var mStr = m.toString();
+        console.log("mStr = %s", mStr);
+        
+		</script>
+	</body>
+</html>

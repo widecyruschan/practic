@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 检测对象是否可调用
+			
+			function isFunction(f)
+			{
+				return Object.prototype.toString.call(f) == "[object Function]";
+			}
+			
+			var obj = {x:1};
+			var arr = [1,2];
+			var fun = function(){return 1;};
+			
+			console.log(isFunction(obj));
+			console.log(isFunction(arr));
+			console.log(isFunction(fun));
+			
+		</script>
+	</body> 
+</html>

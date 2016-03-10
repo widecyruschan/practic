@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 数组长度
+            //  通过length属性直接获取数组的长度
+            //  length：可读写的（默认）
+            
+            console.log([].length);
+            console.log(['a','b'].length);
+            
+            var a = [1,2,3,4,5];
+            a.length = 3;
+            console.log(a[3]);
+            
+            Object.defineProperty(a,"length", {writable:false});
+            
+            a.length = 1;
+            console.log(a[2]);
+            
+			
+            
+	        
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 函数式编程
+			
+			var data = [1,1,4,6,7,3,1];
+			//  使用传统的方法计算数值元素的平均数
+			var sum = 0;
+			for(var i = 0; i < data.length;i++)
+			{
+				sum += data[i];
+			}
+			var average = sum / data.length;
+			console.log(average);
+			
+            //  使用函数式编程技术计算数值元素的平均数
+            var sum = function(x,y){return x + y;};
+            var average1 = data.reduce(sum)/data.length;
+            console.log(average1);
+            
+            
+		</script>
+	</body> 
+</html>

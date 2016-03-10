@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 类和instanceof运算符
+
+            function ParentClass()
+            {
+            	    
+            }
+
+            function MyClass()
+            {
+            	   
+            }
+            MyClass.prototype.name = "bill";
+            
+            var myClass = new MyClass();
+            console.log(myClass instanceof MyClass);
+            MyClass.prototype = ParentClass.prototype;
+            var myClass1 = new MyClass();
+            console.log(myClass1 instanceof ParentClass)
+            
+        
+		</script>
+	</body>
+</html>

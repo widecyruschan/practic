@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 日期和时间
+            var date1 = new Date(2014, 10, 25);  // 2014-11-25
+            var dateTime1 = new Date(2014, 10, 25, 20,15,30); // 2014-11 25 20:15:30
+            //  Tue Nov 25 2014 00:00:00 GMT+0800 (CST)
+            console.log("date1 = %s", date1);
+            //  Tue Nov 25 2014 00:00:00 GMT+0800 (CST)
+            console.log("date1.toString() = %s", date1.toString());
+            //  Tue Nov 25 2014
+            console.log("date1.toDateString() = %s", date1.toDateString());
+            //  Tue, 25 Nov 2014 12:15:30 GMT
+            console.log("dateTime1.toGMTString() = %s", dateTime1.toGMTString());
+            //  Tue, 25 Nov 2014 12:15:30 GMT
+            console.log("dateTime1.toUTCString() = %s", dateTime1.toUTCString());
+            //  2014/11/25
+            console.log("dateTime1.toLocaleDateString() = %s", dateTime1.toLocaleDateString());
+            //  Tue Nov 25 20:15:30 2014
+            //console.log("dateTime1.toLocaleFormat() = %s", dateTime1.toLocaleFormat());  // firefox
+            //  2014/11/25 下午8:15:30
+            console.log("dateTime1.toLocaleString() = %s", dateTime1.toLocaleString());
+            //  下午8:15:30
+            console.log("dateTime1.toLocaleTimeString() = %s", dateTime1.toLocaleTimeString());
+            
+            var now = new Date();
+            console.log("now.toLocaleString() = %s", now.toLocaleString());
+            
+            var elapsed = now - date1;
+            console.log("elapsed = %d", elapsed); //  毫秒
+            
+            console.log("year = %d", now.getFullYear());
+            console.log("month = %d", now.getMonth());
+            console.log("day = %d", now.getDay());
+            console.log("hour = %d", now.getHours());
+            console.log("minute = %d", now.getMinutes());
+            console.log("second = %d", now.getSeconds());
+            
+            console.log("UTCHour = %d", now.getUTCHours());
+            
+            
+            
+            
+	       
+		</script>
+	</body>
+</html>

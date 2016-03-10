@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 对象的比较
+			//  equals
+			
+			function MyClass()
+			{
+				
+			}
+			MyClass.prototype.value = 1;
+			MyClass.prototype.equals = function(obj)
+			{
+				if(obj == null) return false;
+				if(obj.constructor != MyClass) return false;
+				
+				return obj.value == this.value;
+			}
+			
+			var c1 = new MyClass();
+			c1.value = 20;
+			var c2 = new MyClass();
+			c2.value = 20;
+			console.log(c1.equals(c2));
+        
+            MyClass.prototype.compareTo = function(obj)
+            {
+            	    if(obj == null) throw new Error("无法比较");
+				if(obj.constructor != MyClass) throw new Error("无法比较");
+            	    return this.value - obj.value;
+            }
+            var n = c1.compareTo(c2);
+            if(n > 0)
+            {
+            	    console.log("c1 > c2");
+            }
+            else if(n == 0)
+            {
+            	    console.log("c1 == c2");
+            }
+            else
+            {
+            	    console.log("c1 < c2");
+            }
+		</script>
+	</body>
+</html>

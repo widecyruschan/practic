@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 通过构造函数的名称进行校验
+			
+			//  constructor和instanceof：由于多个页面拥有不同的构造函数，所以它们只能在同一个页面中使用
+            function MyClass1()
+            {
+            	
+            }
+            function MyClass2()
+            {
+            	
+            }
+            var c = new MyClass1();
+            if(c.constructor && typeof c.constructor == "function")
+            {
+            	     console.log(c.constructor.name);
+            	     if("MyClass1" == c.constructor.name)
+            	     {
+            	     	console.log("MyClass1");
+            	     }
+            }
+            
+            
+           
+           
+        
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		// 数值和字符串之间的转换
+        //  1. 数值转换为二进制、八进制和十六进制
+        //  2. 将浮点数转换成字符串
+        //  3. 将字符串转换为数值
+        
+        var n = 25;
+        var binaryString = n.toString(2);
+        var octalString = n.toString(8);
+        var hexString = n.toString(16);
+        console.log("binaryString = %s", binaryString);
+        console.log("octalString = %s", octalString);
+        console.log("hexString = %s", hexString);
+        
+        // toFixed：通过参数指定浮点数保留多少位小数
+        // toExponential：使用科学计数法输出字符串
+        // toPrecision：参数指定数值一共多少位
+        
+        var m = 12345.678;
+        console.log("m.toFixed(0) = %s", m.toFixed(0));  // 12346
+        console.log("m.toFixed(2) = %s", m.toFixed(2));  // 12345.68
+        console.log("m.toFixed(10) = %s", m.toFixed(10)); // 12345.6780000000
+        
+        console.log("m.toExponential(1) = %s", m.toExponential(1) );
+        console.log("m.toExponential(4) = %s", m.toExponential(4) );
+        
+        console.log("m.toPrecision(4) = %s", m.toPrecision(4) );
+        console.log("m.toPrecision(5) = %s", m.toPrecision(5) );
+        console.log("m.toPrecision(10) = %s", m.toPrecision(10) );
+        
+        var n1 = parseInt("123 meters");
+        var n2 = parseFloat("33.12 meters");
+        console.log("parseInt(\"0xFFFF\") = %d", parseInt("0xFFFF"));
+        
+        console.log("parseInt(\"FFFF\", 16) = %d", parseInt("FFFF", 16));
+        console.log("parseInt(\"110011\", 2) = %d", parseInt("110011", 2));
+        
+		</script>
+	</body>
+</html>

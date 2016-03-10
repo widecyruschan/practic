@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// null和undefined
+			/*
+			 * null：JavaScript的关键字，空值
+			 * null是一个特殊的对象值。表示数值、字符串和对象的“无值”
+			 */
+			
+			console.log(typeof(null));
+			
+			/*
+			 * undefined：表示更深层次的“空值”，表示变量未初始化。而null表示变量被设置为null
+			 * undefined是预定义的全局变量
+			 */
+			
+			var value;
+			console.log(value);
+			
+			var value1;  		// undefined
+			var value2 = null; // null
+			if(value1 == value2)
+			{
+				console.log("value1 == value2");
+			}
+            if(value1 === value2)
+            {
+            	    console.log("value1 === value2");
+            }
+            
+            //  1. 如果对象属性、数组元素的值不存在，那么返回undefined
+            //  2.  如果一个函数不返回值，那么该函数应该返回undefined
+            //  3   如果调用了有参数的函数，但是没有给函数参数传递值参，这时在函数内容使用形参时的值为undefined
+            
+		</script>
+	</body>
+</html>

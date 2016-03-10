@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 正则表达式的选择和分组
+			// |:  选择，相当于“或”  [...]
+			// (...)：分组
+			
+			var  pattern1 = /aa|bb|cc/;
+			console.log(pattern1.test("abcd"));   // false
+		    console.log(pattern1.test("abcbb"));   // true
+		    
+		    var pattern2 = /^java(script)?$/;
+		    console.log(pattern2.test("java"));   // true
+		    console.log(pattern2.test("javaabc"));   // false
+		    //  abc   abcabc
+		    var pattern3 = /(abc)+/;
+		    
+		    console.log(pattern3.test("xyzabcd"));   // true
+		    console.log(pattern3.test("xyzabcabcd"));   // true
+		    
+		    var pattern4 = /[(aa)(bb)(cc)]/;
+		    console.log(pattern4.test("abcd"));   // false
+		    console.log(pattern4.test("abcbb"));   // true
+		</script>
+	</body>
+</html>

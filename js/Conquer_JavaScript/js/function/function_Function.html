@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 用Function(...)构造函数定义匿名函数
+			// function
+			var f = new Function("x", "y", "z", "return x * y + z;");
+			var f1 = function(x,y,z){return x * y + z};
+			console.log(f(1,2,3));
+			
+			var scope = "global";
+			function fun()
+			{
+				var scope = "local";
+				return new Function("return scope;");
+			}
+			
+			console.log(fun()());
+			
+		</script>
+	</body> 
+</html>

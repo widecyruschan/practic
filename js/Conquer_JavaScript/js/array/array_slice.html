@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 数组方法：slice
+			//  slice可以没有参数，将原来的数组整个复制一份
+			//  slice可以只有一个参数，复制参数指定的索引往后的所有数组元素
+			//  slice可以有两个参数，begin、end，  复制的范围是begin至end-1
+			//  begin和end可以使负值。-1表示数组最后一个元素，-2表示倒数第二个数组元素，以此类推。
+			var arr1 = [1,2,3,4,5];
+			var arr2 = arr1.slice();   // 将原数组复制一份到新数组
+			//arr1[0] = 10;
+			//console.log(arr1.join());
+			//console.log(arr2.join());
+			
+			console.log(arr1.slice(1, 4).join());     // 2,3,4
+			
+			console.log(arr1.slice(2).join());        // 3,4,5
+			
+			console.log(arr1.slice(-4, -1).join());   // 2,3,4
+			
+			
+	 
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		// 多维数组
+		// 创建多维数组（10*10的二维数组）
+		var table = new Array(10);
+		for(var i = 0; i < table.length;i++)
+		{
+			table[i] = new Array(10);
+		}
+        for(var row = 0; row < table.length; row++)
+        {
+        	    for(var col = 0; col < table[row].length; col++)
+        	    {
+        	    	    table[row][col] = row*col;
+        	    }
+        }
+        
+        console.log(table[4][5]);
+        
+		</script>
+	</body>
+</html>

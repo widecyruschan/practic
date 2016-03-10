@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		// 值与对象的比较
+        var s1 = "hello world";
+        var s2 = new String("hello world");
+        if(s1 == s2)
+        {
+        	    console.log("s1 == s2");
+        }
+        //  全等于号
+        if(s1 === s2)
+        {
+           	console.log("s1 === s2");
+        }
+        var s3 = "hello world";
+        if(s1 === s3)
+        {
+        	    console.log("s1 === s3");
+        }
+        
+        var n1 = 20;
+        var n2 = new Number(20);
+        if(n1 == n2)
+        {
+        	    console.log("n1 == n2");
+        }
+        
+        if(n1 === n2)
+        {
+        	    console.log("n1 === n2");
+        }
+        
+        console.log("typeof(s1) = %s", typeof(s1));
+        console.log("typeof(s2) = %s", typeof(s2));
+        
+        console.log("typeof(n1) = %s", typeof(n1));
+        console.log("typeof(n2) = %s", typeof(n2));
+		</script>
+	</body>
+</html>

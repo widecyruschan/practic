@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 对象的只读属性
+			function MyClass(name, age)
+			{
+				this.name = function(){return name};
+				this.age = function(){return age;};
+			}
+			
+			Range.prototype = {
+				toString:function(){return "name:" + this.name() + " age:" + this.age();}
+			}
+			
+			var c = new MyClass("Bill", 50);
+			console.log(c.name());
+			console.log(c.age());
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		// 隐式类型转换
+        var str = 20 + "hello world";
+        console.log("str = %s", str);
+        console.log("str type is %s", typeof(str));
+        
+        var n = "12" * "4";
+        console.log("n = %d", n);
+        console.log("n type is %s", typeof(n));
+        
+        var n1 = "12" * "a";
+        console.log("n1 = ", n1); // NaN
+        var str1 = 20 - "hello world";
+        console.log("str1 = ", str1);
+        
+        var v1 = "xyz" + undefined;  // null,true,false,Infinity
+        console.log("v1 = %s", v1);
+        
+        
+        
+        
+		</script>
+	</body>
+</html>

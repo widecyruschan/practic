@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//  检测属性是否存在
+		// 1. in运算符  2. hasOwnProperty   3. propertyIsEnumerable  4. undefined
+		
+		//  1. in运算符
+		var obj = {name:"Bill"};
+		console.log("name" in obj);
+		console.log("age" in obj);
+		console.log("toString" in obj);
+		
+		//  2. hasOwnProperty 
+		console.log(obj.hasOwnProperty("name"));      //  true
+		console.log(obj.hasOwnProperty("name1"));	  //  false
+		console.log(obj.hasOwnProperty("toString"));  //  false
+		
+		//   3. propertyIsEnumberable
+		console.log(obj.propertyIsEnumerable("name"));      //  true
+		console.log(obj.propertyIsEnumerable("name1"));	  //  false
+		console.log(obj.propertyIsEnumerable("toString"));  //  false
+		
+		//  4.  undefined
+		if(obj.name1 != undefined)
+		{
+			
+		}
+		else
+		{
+			console.log("name1不存在");
+		}
+        
+		</script>
+	</body>
+</html>

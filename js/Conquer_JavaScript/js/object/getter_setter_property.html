@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//  读写属性（getter和setter）
+		//  1.  在对属性读写过程中完成其他一些工作
+		//  2.  将属性设置为只读或只写
+		
+		var obj = {
+			name:"Bill",
+			ageValue:30,  
+			get age()
+			{
+				console.log("get age");
+				return this.ageValue;
+			},
+			set age(v)
+			{
+				console.log("set age");
+				this.ageValue = v;
+			},
+			salaryValue:5000,
+			get salary()
+			{
+				return this.salaryValue;
+			},
+		/*	set salary(v)
+			{
+				this.salaryValue = v;
+			}*/
+			
+		} 
+        obj.age = 12;
+        console.log(obj.age);
+        console.log(obj.ageValue);
+        obj.salary = 1234;
+        console.log(obj.salary);
+		</script>
+	</body>
+</html>

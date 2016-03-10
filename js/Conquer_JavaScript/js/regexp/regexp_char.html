@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 匹配字符的正则表达式
+           /*
+            [...]: [ab]，字符串中必须要包含中括号中给定的字符
+            [^...]：[^ab], 字符串中包含除了中括号中的任何给定的字符
+            \w：任何ASCII字符组成的单词，等价于[a-zA-Z0-9]
+            \W：任何不是ASCII字符组成的单词，等价于[^a-zA-Z0-9]
+            \s：任何Unicode空白符
+            \S：任何非Unicode空白符的字符
+            \d：任何ASCII数字，等价于[0-9]
+            \D：除了ASCII数字外的任何字符，等价于[^0-9]
+            [\b]：退格字符
+            * 
+            */
+           
+           var pattern1 = /[ab]/;
+           console.log(pattern1.test("abcd"));  //  true
+           console.log(pattern1.test("dcvf"));  //  false
+           
+           var pattern2 = /[^ab]/;
+           console.log(pattern2.test("abcd"));  // true
+           console.log(pattern2.test("aaaabbb"));  // false
+           
+           
+           var pattern3 = /\w/;
+           console.log(pattern3.test("abcd"));   // true
+           console.log(pattern3.test("中国"));   // false
+           
+           
+           var pattern4 = /\W/;
+           console.log(pattern4.test("abcd"));   // false
+           console.log(pattern4.test("中国abcd"));   // true
+		</script>
+	</body>
+</html>

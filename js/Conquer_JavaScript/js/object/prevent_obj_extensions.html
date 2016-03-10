@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//  对象的可扩展性
+        //  Object.preventExtensions  //  不能动态添加属性
+        //  Object.seal               //  不能动态添加和删除属性
+        //  Object.freeze             //  对象冻结， 不能动态添加和删除属性，也不能修改属性的值
+        
+        var obj = {x:1, y:2};
+        obj.name = "Bill";
+        console.log(obj.name);
+        
+        Object.preventExtensions(obj);
+        obj.salary = 1234;
+        console.log(obj.salary);
+        
+        delete obj.x;
+        console.log(obj.x);
+        Object.seal(obj);
+        delete obj.y;
+        console.log(obj.y);
+        
+        Object.freeze(obj);
+        obj.y = 123;
+        console.log(obj.y);
+        
+        
+		</script>
+	</body>
+</html>

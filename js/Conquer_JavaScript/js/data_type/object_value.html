@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		// 对象转换为原始值
+		//  ->布尔
+		//  ->字符串
+		//  ->数值
+		//  所有的对象转换为布尔类型都是true
+		var obj = new Object();
+		if(obj)
+		{
+			console.log("obj");
+		}
+		if(new Boolean(false))
+		{
+			console.log("Boolean(false)");
+		}
+        //  toString
+        //  valueOf
+        console.log("{x:1,y:2}.toString()=%s", ({x:1,y:2}).toString());
+        console.log("[1,2,3].toString()=%s", [1,2,3].toString());
+        console.log("new Date(2015,0,12).toString()=%s", new Date(2015,0,12).toString());
+        
+        console.log("{x:1,y:2}.valueOf()=%s", ({x:1,y:2}).valueOf());
+        console.log("[1,2,3].valueOf()=%s", [1,2,3].valueOf());
+        console.log("new Date(2015,0,12).valueOf()=%s", new Date(2015,0,12).valueOf());
+        // 1.  先调用toString
+        // 2   如果对象没有toString，那么会调用valueOf
+        // 3.  将会抛出异常
+        
+        var v = 4 + new Number("5");
+        console.log(typeof(v));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// RegExp对象的方法：test和exec
+		    //  exec用于匹配指定字符串（通过参数）中第一个匹配正则表达式的子字符串。如果匹配成功，返回一个数组，否则返回一个null
+			var str = "abcd44,ab41avdjfldj3,afdfsda12";
+			var str1 = "abcd";
+			var pattern = /\d+/g;
+			//console.log(pattern.exec(str));
+			
+			//console.log(pattern.lastIndex);
+			var result;
+			while((result = pattern.exec(str)) != null)
+			{
+				console.log(result[0]);
+			}
+			
+		</script>
+	</body>
+</html>

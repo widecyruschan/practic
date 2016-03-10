@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 用于重复匹配的正则表达式
+
+			var pattern1 = /\d\d/;
+			console.log(pattern1.test("a12b"));  //  true
+			console.log(pattern1.test("a1c2b"));  //  false
+			var pattern2 = /\d\d\d\d\d/;
+			console.log(pattern2.test("a12345b"));  //  true
+			console.log(pattern2.test("a1234a5b"));  //  false
+			/*
+			 {n,m}：匹配{前面的字符至少n次，但不能超过m次。   n <= count <= m
+			 {n,}：匹配{前面的字符至少n次，或者更多次。      count >=n 
+			 {n}：匹配{前面的字符n次   count == n
+			 	
+			 ?：匹配?前面的字符0或1次，等价于{0,1}
+			 +：匹配+前面的字符1次或多次，等价于{1,};
+			 *: 匹配*前面的字符0次或多次，等价于{0,};
+			 */
+			
+			var pattern3 = /\d{5,5}/;
+			console.log(pattern3.test("a123456b"));  //  true
+			console.log(pattern3.test("a1234a5b"));  //  false
+			
+			var pattern4 = /\d{5,}/;
+			console.log(pattern4.test("a123456b"));  //  true
+			console.log(pattern4.test("a1234a5b"));  //  false
+			
+			var pattern5 = /\d{5}/;
+			console.log(pattern5.test("a123456b"));  //  true
+			console.log(pattern5.test("a1234a5b"));  //  false
+			
+			var pattern6 = /\d?/;
+			console.log(pattern6.test("ab345cd"));    // true
+			
+			var patter7 = /\d\d+/;
+			
+			console.log(patter7.test("abcd"));    		// false
+			console.log(patter7.test("ab123344cd"));    // true    
+		</script>
+	</body>
+</html>

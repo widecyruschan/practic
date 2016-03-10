@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 定义枚举类型
+			
+			// ECMAScript5 Enum
+			//  namesToValues：对象，用于定义枚举类型的值
+			function enumeration(namesToValues)
+		    {
+		    	    var enumParent = enumeration.prototype =
+		    	    {
+		    	    	    constructor:enumeration,
+		    	    	    toString:function(){return this.name;},
+		    	    	    valueOf:function(){return this.value;}
+		    	    };
+		    	    enumeration.values = [];  // 用于存放枚举对象的数组
+		    	    for(name in namesToValues)
+		    	    {
+		    	    	    var e = Object.create(enumParent);
+		    	    	    e.name = name;
+		    	    	    e.value = namesToValues[name];
+		    	    	    enumeration[name] = e;
+		    	    	    enumeration.values.push(e);
+		    	    	    
+		    	    }
+		    	    return enumeration;
+		    	    
+		    }
+			
+			var E = enumeration({EnumValue1:1, EnumValue2:2});
+			var ev1 = E.EnumValue1;
+			console.log(ev1.toString());
+            console.log(ev1.valueOf());
+            console.log(ev1 instanceof E);
+            
+            
+            
+            
+            
+            
+           
+           
+        
+		</script>
+	</body>
+</html>

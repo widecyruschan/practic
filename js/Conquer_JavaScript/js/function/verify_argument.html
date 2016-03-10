@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 校验值参
+		    function sum(a,b,c)
+		    {
+		    	    if(!isNaN(a) && !isNaN(b) && !isNaN(c))
+		    	    {
+		    	    	    var an = Number(a);
+		    	    	    var bn = Number(b);
+		    	    	    var cn = Number(c);
+		    	    	    return an + bn + cn;
+		    	    }
+		    	    throw new Error("a,b,c必须都是数值类型");
+		    }
+
+		    console.log(sum(1,2,"20"));
+		   // console.log(sum(1,2,"abc"));
+		    
+		    function fun(a)
+		    {
+		    	    if(Object.prototype.toString.call(a) == '[object Array]')
+		    	        return a.join("$");
+		    	    throw new Error("参数a必须是数组类型");
+		    }
+		    console.log(fun(["ab", "cd"]));
+		    console.log(fun(44));
+		</script>
+	</body>
+</html>

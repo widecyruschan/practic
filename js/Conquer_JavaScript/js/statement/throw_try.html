@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		// 异常处理语句（throw、try、catch、finally）
+      //  n = 100;
+       // delete n;
+       // console.log(n);
+        var i = 1;
+	    try
+	    {
+            if(i == 0)
+            {
+                 throw new Error("i不能等于0");
+            }
+        }
+	    catch(ex)
+	    {
+	    	    console.log(ex);
+	    }
+	    finally
+	    {
+	    	    console.log("finally");
+	    }
+	    
+        console.log("执行到着了.");
+        
+		</script>
+		
+
+	</body>
+</html>

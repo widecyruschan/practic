@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 用于模式匹配的String方法：split
+			//  split，用于分隔字符串，返回分隔后的数组
+			//  split只有一个参数，字符串或正则表达式
+			console.log("1,2,3,4,5".split(","));
+			
+			console.log("1   ,   2  ,   3   ,   4,    5".split(","));
+			console.log("1   ,   2  ,   3   ,   4,    5".split(/\s*,\s*/));
+			
+		</script>
+	</body>
+</html>

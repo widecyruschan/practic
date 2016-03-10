@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 对象属性取值器
+		    function MyClass()
+		    {
+		    	
+		    }
+		    
+		    MyClass.prototype.id = 20;
+		    MyClass.prototype.value = 2;
+		    var myClass = new MyClass();
+		    console.log(myClass.id);
+		    
+		    function getId()
+		    {
+		    	    console.log("process id");
+		    	    if(this.value > 5)
+		    	    {
+		    	    	    return this.value;
+		    	    }
+		    	    else
+		    	    {
+		    	    	    return "[" + this.value + "]";
+		    	    }
+		    }
+		    
+            Object.defineProperty(MyClass.prototype, "id", {get:getId});
+		    
+		    console.log(myClass.id);
+		</script>
+	</body>
+</html>
